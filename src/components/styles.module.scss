@@ -22,6 +22,16 @@
   padding: 0;
 }
 
+.close {
+  background: none;
+  margin-left: 3%;
+  font-family: inherit;
+  font-weight: bold;
+  color: #ffffff;
+  border: 0;
+  padding: 0;
+}
+
 .formcenter {
   display: flex;
   flex-direction: column;
@@ -82,7 +92,7 @@
   font-style: italic;
   font-weight: bold;
   font-size: 3rem;
-  color: #5695c2;
-
+  color: #e9edf0;
+  text-shadow: 3px 2px rgb(23, 127, 196);
   margin: 4.8% 0 0 8%;
 }
