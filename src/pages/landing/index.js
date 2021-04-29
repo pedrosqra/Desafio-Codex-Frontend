@@ -35,6 +35,8 @@ export default function Logon() {
             <input
               className={styles.forminput}
               placeholder="senha"
+              type="password"
+              value="FakePSW"
               value={password}
               onChange={(e) => setPass(e.target.value)}
             />
