@@ -13,7 +13,7 @@ export default function Logon() {
 
     try {
       const response = await api.post("/login", { email, password });
-
+      console.log(response.data.token);
       localStorage.setItem("token", response.data.token);
     } catch (err) {
       alert("Falha no login, tente novamente.");
