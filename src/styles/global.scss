@@ -31,6 +31,15 @@ button {
   font: 500 1rem "Inter", sans-serif;
 }
 
+input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  background-color: #eee;
+  outline-color: rgb(20, 127, 199);
+  outline-offset: 0.08rem;
+}
 h1,
 h2,
 h3,
