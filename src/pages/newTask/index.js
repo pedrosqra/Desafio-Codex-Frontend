@@ -9,7 +9,10 @@ export default function NewTask() {
   const [description, setDescription] = useState("");
   const [priority, setPriority] = useState("baixa");
   const router = useRouter();
-  const token = localStorage.getItem("token");
+  const token = "undefined";
+  if (typeof window !== "undefined") {
+    localStorage.setItem("token");
+  }
 
   async function handleCreateTask(e) {
     e.preventDefault();
