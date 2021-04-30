@@ -41,9 +41,9 @@ export default function tasks() {
     }
   }
 
-  function handleDeleteTask(id) {
+  async function handleDeleteTask(id) {
     try {
-      api.delete(`/task/${id}`, {
+      await api.delete(`/task/${id}`, {
         headers: {
           Auth: "Bearer " + token,
         },
@@ -100,7 +100,7 @@ export default function tasks() {
                       type="button"
                       onClick={() => handleDeleteTask(task._id)}
                     >
-                      <FiTrash2 size={25} />
+                      <FiTrash2 size={25} color="red" />
                     </button>
                   </div>
                 </div>
