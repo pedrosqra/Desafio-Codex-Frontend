@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Modal from "../../components/modal";
 import styles from "./styles.module.scss";
 import api from "../../services/api";

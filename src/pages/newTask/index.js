@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./styles.module.scss";
 import api from "../../services/api";
 import { useRouter } from "next/router";
 
-export default function Logon() {
+export default function NewTask() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [priority, setPriority] = useState("baixa");
   const router = useRouter();
   const token = localStorage.getItem("token");
 
-  async function handleLogin(e) {
+  async function handleCreateTask(e) {
     e.preventDefault();
     console.log(priority);
 
@@ -31,7 +31,7 @@ export default function Logon() {
       <div className={styles.logon}>
         <section className={styles.sec}>
           <h1 className={styles.apptitle}>Nova Tarefa</h1>
-          <form className={styles.formcenter} onSubmit={handleLogin}>
+          <form className={styles.formcenter} onSubmit={handleCreateTask}>
             <input
               className={styles.forminput}
               placeholder="Titulo"

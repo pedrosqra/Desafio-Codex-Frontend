@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { FiEdit2, FiTrash2, FiPlus, FiFilter } from "react-icons/fi";
+import UpdateTaskModal from "../../components/UpdateTaskModal";
+import { FiTrash2, FiPlus, FiFilter } from "react-icons/fi";
 import styles from "./styles.module.scss";
 import api from "../../services/api";
 
@@ -16,15 +17,14 @@ export default function tasks() {
         },
       })
       .then((response) => {
-        console.log(response);
         setUserTasks(response.data);
       });
-  }, [token]);
+  }, [userTasks]);
 
   function handleTasksSorted(e) {
     e.preventDefault();
 
-    useEffect(() => {
+    try {
       api
         .get("/tasks/sorted", {
           headers: {
@@ -32,10 +32,11 @@ export default function tasks() {
           },
         })
         .then((response) => {
-          console.log(response);
           setUserTasks(response.data);
         });
-    }, []);
+    } catch (error) {
+      alert(error);
+    }
   }
 
   function handleDeleteTask(id) {
@@ -76,9 +77,7 @@ export default function tasks() {
                 <div className={styles.taskDetails}>
                   <a onClick={null}>{task.name}</a>
                   <p>{task.description}</p>
-                  <button type="button">
-                    <FiEdit2 size={50} />
-                  </button>
+                  <UpdateTaskModal>{task._id}</UpdateTaskModal>
                   <button
                     type="button"
                     onClick={() => handleDeleteTask(task._id)}
