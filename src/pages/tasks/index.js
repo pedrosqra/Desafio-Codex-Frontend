@@ -8,11 +8,8 @@ import { useRouter } from "next/router";
 
 export default function tasks() {
   const [userTasks, setUserTasks] = useState([]);
+  const token = window.localStorage.setItem("token");
   const router = useRouter();
-  const token = "undefined";
-  if (typeof window !== "undefined") {
-    localStorage.setItem("token");
-  }
 
   useEffect(() => {
     api
