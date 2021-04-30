@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { FiEdit2, FiTrash2, FiPlus, FiFilter } from "react-icons/fi";
+import {
+  FiEdit2,
+  FiTrash2,
+  FiPlus,
+  FiFilter,
+  FiArrowLeftCircle,
+} from "react-icons/fi";
 import styles from "./styles.module.scss";
 import api from "../../services/api";
+import { useRouter } from "next/router";
 
 export default function tasks() {
   const [userTasks, setUserTasks] = useState([]);
   const token = localStorage.getItem("token");
+  const router = useRouter();
 
   useEffect(() => {
     api
@@ -51,49 +59,63 @@ export default function tasks() {
     }
   }
 
+  function handleLogout() {
+    try {
+      localStorage.clear();
+      router.push("/landing");
+    } catch (error) {
+      alert("Erro ao deletar tarefa.");
+    }
+  }
+
   return (
     <div className={styles.background}>
+      <button className={styles.back} type="button" onClick={handleLogout}>
+        <FiArrowLeftCircle size={50} color="#ffff" />
+      </button>
       <div className={styles.container}>
-        <Link href={"/newTask"}>
-          <button className={styles.registerbutton}>
-            <FiPlus size={50} color="#FFFF" alt="Criar Tarefa" />
-          </button>
-        </Link>
+        <div className={styles.functions}>
+          <Link href={"/newTask"}>
+            <button className={styles.upbutton}>
+              <FiPlus size={50} color="#5699" alt="Criar Tarefa" />
+            </button>
+          </Link>
 
-        <button onClick={handleTasksSorted}>
-          <FiFilter size={50} color="#FFFF" alt="Ordenar tarefas" />
-        </button>
+          <button className={styles.upbutton} onClick={handleTasksSorted}>
+            <FiFilter size={50} color="#5699" alt="Ordenar tarefas" />
+          </button>
+        </div>
         <ul>
-          <div>
-            <p>Title</p>
+          <div className={styles.sections}>
+            <p>Título</p>
             <p>Descrição</p>
-            <p>Editar</p>
-            <p>Apagar</p>
           </div>
           {userTasks.map((task) => {
             return (
-              <li key={task._id}>
-                <div className={styles.taskDetails}>
-                  <a onClick={null}>{task.name}</a>
-                  <p>{task.description}</p>
-                  <button type="button">
-                    <FiEdit2 size={50} />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => handleDeleteTask(task._id)}
-                  >
-                    <FiTrash2 size={50} />
-                  </button>
+              <div key={task._id}>
+                <div className={styles.task}>
+                  <a className={styles.title} onClick={null}>
+                    {task.name}
+                  </a>
+                  <p className={styles.desc}>{task.description}</p>
+                  <div className={styles.sidebuttons}>
+                    <button className={styles.upbutton} type="button">
+                      <FiEdit2 size={25} />
+                    </button>
+                    <button
+                      className={styles.upbutton}
+                      type="button"
+                      onClick={() => handleDeleteTask(task._id)}
+                    >
+                      <FiTrash2 size={25} />
+                    </button>
+                  </div>
                 </div>
-              </li>
+              </div>
             );
           })}
         </ul>
       </div>
-      <footer>
-        <p>Copyright - 2021 - Desafio da Codex - by Igor Franca e Pedro Lima</p>
-      </footer>
     </div>
   );
 }
