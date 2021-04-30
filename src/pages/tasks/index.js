@@ -21,7 +21,7 @@ export default function tasks() {
       .then((response) => {
         setUserTasks(response.data);
       });
-  }, [userTasks]);
+  }, [userTasks.length]);
 
   function handleTasksSorted(e) {
     e.preventDefault();
