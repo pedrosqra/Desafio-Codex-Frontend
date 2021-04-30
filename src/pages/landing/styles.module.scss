@@ -77,6 +77,10 @@
     justify-content: space-around;
     align-items: center;
   }
+
+  .image1 {
+    display: none;
+  }
 }
 
 @media (max-width: 720px) {
@@ -85,5 +89,9 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+  }
+
+  .image1 {
+    display: none;
   }
 }
