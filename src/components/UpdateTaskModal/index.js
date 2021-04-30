@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 
 export default function ModalItem(props) {
   const router = useRouter();
-  const token = localStorage.getItem("token");
   const taskId = props.children;
   const [isModalOpen, setModalState] = useState(false);
   const [name, setName] = useState("");
@@ -27,7 +26,7 @@ export default function ModalItem(props) {
         },
         {
           headers: {
-            Auth: "Bearer " + token,
+            Auth: "Bearer " + `${localStorage.getItem("token")}`,
           },
         }
       );
@@ -94,7 +93,7 @@ export default function ModalItem(props) {
               Atualizar Tarefa
             </button>
           </form>
-          <img className={styles.image} src="/girlTask.png" alt="logo" />
+          <img className={styles.image} src="/update.png" alt="logo" />
         </div>
         <button
           onClick={() => setModalState(false)}

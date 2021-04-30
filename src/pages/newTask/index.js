@@ -9,7 +9,6 @@ export default function NewTask() {
   const [description, setDescription] = useState("");
   const [priority, setPriority] = useState("baixa");
   const router = useRouter();
-  const token = localStorage.getItem("token");
 
   async function handleCreateTask(e) {
     e.preventDefault();
@@ -19,7 +18,7 @@ export default function NewTask() {
       const response = await api.post(
         "/task",
         { name, priority, description },
-        { headers: { Auth: "Bearer " + token } }
+        { headers: { Auth: "Bearer " + `${localStorage.getItem("token")}` } }
       );
       router.push("/tasks");
     } catch (err) {

@@ -8,14 +8,13 @@ import { useRouter } from "next/router";
 
 export default function tasks() {
   const [userTasks, setUserTasks] = useState([]);
-  const token = localStorage.getItem("token");
   const router = useRouter();
 
   useEffect(() => {
     api
       .get("/tasks", {
         headers: {
-          Auth: "Bearer " + token,
+          Auth: "Bearer " + localStorage.getItem("token"),
         },
       })
       .then((response) => {
@@ -30,7 +29,7 @@ export default function tasks() {
       api
         .get("/tasks/sorted", {
           headers: {
-            Auth: "Bearer " + token,
+            Auth: "Bearer " + localStorage.getItem("token"),
           },
         })
         .then((response) => {
@@ -45,7 +44,7 @@ export default function tasks() {
     try {
       await api.delete(`/task/${id}`, {
         headers: {
-          Auth: "Bearer " + token,
+          Auth: "Bearer " + localStorage.getItem("token"),
         },
       });
       setUserTasks(userTasks.filter((task) => task._id !== id));
@@ -59,7 +58,7 @@ export default function tasks() {
       localStorage.clear();
       router.push("/landing");
     } catch (error) {
-      alert("Erro ao deletar tarefa.");
+      alert(error);
     }
   }
 
