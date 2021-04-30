@@ -1,0 +1,86 @@
+.background {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.container {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.desc {
+  width: 50%;
+  overflow: auto;
+}
+
+.title {
+  overflow: auto;
+}
+
+.back {
+  background: none;
+  border: none;
+  margin: 5% 0% -10% 10%;
+  align-self: flex-start;
+}
+
+.sections {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 13%;
+  font-weight: bold;
+  display: flex;
+  width: 50%;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #0f1014c4;
+}
+
+.task {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  list-style: none;
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin-bottom: 5%;
+  padding: 9%;
+}
+
+.sidebuttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.functions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: none;
+  margin-top: 20%;
+}
+
+.upbutton {
+  background: none;
+  border: none;
+}
+
+.sec {
+  display: flex;
+  flex-direction: column;
+}
+
+.apptitle {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-style: italic;
+  text-shadow: 5px 5px #333;
+  font-weight: bold;
+  font-size: 4.4rem;
+  color: #ffffff;
+}

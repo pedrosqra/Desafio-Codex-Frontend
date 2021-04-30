@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import { FiLogIn, FiArrowLeftCircle } from "react-icons/fi";
 import styles from "./styles.module.scss";
-import api from "../services/api";
+import api from "../../services/api";
 
 export default function ModalItem() {
   const [isModalOpen, setModalState] = useState(false);
