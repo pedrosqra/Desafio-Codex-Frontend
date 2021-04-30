@@ -53,8 +53,12 @@ export default function ModalItem(props) {
   return (
     <div className={styles.registermodal}>
       <div className={styles.exterior}>
-        <button type="button" onClick={() => setModalState(true)}>
-          <FiEdit2 size={50} />
+        <button
+          className={styles.editbutton}
+          type="button"
+          onClick={() => setModalState(true)}
+        >
+          <FiEdit2 size={25} />
         </button>
       </div>
       <Modal
