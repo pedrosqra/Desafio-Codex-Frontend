@@ -8,14 +8,13 @@ import { useRouter } from "next/router";
 
 export default function tasks() {
   const [userTasks, setUserTasks] = useState([]);
-  const token = window.localStorage.setItem("token");
   const router = useRouter();
 
   useEffect(() => {
     api
       .get("/tasks", {
         headers: {
-          Auth: "Bearer " + token,
+          Auth: "Bearer " + localStorage.getItem("token"),
         },
       })
       .then((response) => {
