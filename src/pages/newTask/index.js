@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./styles.module.scss";
 import api from "../../services/api";
+import { FiArrowLeftCircle } from "react-icons/fi";
 import { useRouter } from "next/router";
 
 export default function NewTask() {
@@ -26,9 +27,16 @@ export default function NewTask() {
     }
   }
 
+  function handleLogout() {
+    router.push("/tasks");
+  }
+
   return (
     <div>
       <div className={styles.logon}>
+        <button className={styles.back} type="button" onClick={handleLogout}>
+          <FiArrowLeftCircle size={50} color="#ffff" />
+        </button>
         <section className={styles.sec}>
           <h1 className={styles.apptitle}>Nova Tarefa</h1>
           <form className={styles.formcenter} onSubmit={handleCreateTask}>

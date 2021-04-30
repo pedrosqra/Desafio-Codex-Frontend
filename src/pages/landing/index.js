@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Modal from "../../components/modal";
+import Modal from "../../components/modal/modal";
 import styles from "./styles.module.scss";
 import api from "../../services/api";
 import { useRouter } from "next/router";
