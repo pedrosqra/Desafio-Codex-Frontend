@@ -64,9 +64,11 @@ export default function tasks() {
 
   return (
     <div className={styles.background}>
-      <button className={styles.back} type="button" onClick={handleLogout}>
-        <FiArrowLeftCircle size={50} color="#ffff" />
-      </button>
+      <div className={styles.backbutton}>
+        <button className={styles.back} type="button" onClick={handleLogout}>
+          <FiArrowLeftCircle size={50} color="#ffff" />
+        </button>
+      </div>
       <div className={styles.container}>
         <div className={styles.functions}>
           <Link href={"/newTask"}>
