@@ -3,17 +3,17 @@ import styles from "./styles.module.scss";
 import api from "../../services/api";
 import { FiArrowLeftCircle } from "react-icons/fi";
 import { useRouter } from "next/router";
+import Cookie from "js-cookie";
 
 export default function NewTask() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [priority, setPriority] = useState("baixa");
   const router = useRouter();
-  const token = localStorage.getItem("token");
+  const token = Cookie.get("token");
 
   async function handleCreateTask(e) {
     e.preventDefault();
-    console.log(priority);
 
     try {
       const response = await api.post(
@@ -27,14 +27,14 @@ export default function NewTask() {
     }
   }
 
-  function handleLogout() {
+  function handleBack() {
     router.push("/tasks");
   }
 
   return (
     <div>
       <div className={styles.logon}>
-        <button className={styles.back} type="button" onClick={handleLogout}>
+        <button className={styles.back} type="button" onClick={handleBack}>
           <FiArrowLeftCircle size={50} color="#ffff" />
         </button>
         <section className={styles.sec}>

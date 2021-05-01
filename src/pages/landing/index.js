@@ -2,12 +2,14 @@ import { useState } from "react";
 import Modal from "../../components/modal/modal";
 import styles from "./styles.module.scss";
 import api from "../../services/api";
+import Cookie from "js-cookie";
 import { useRouter } from "next/router";
 
 export default function Logon() {
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
   const router = useRouter();
+  Cookie.set("token", "");
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -15,8 +17,7 @@ export default function Logon() {
 
     try {
       const response = await api.post("/login", { email, password });
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("user", email);
+      Cookie.set("token", response.data.token);
       router.push("/tasks");
     } catch (err) {
       alert("Falha no login, tente novamente.");

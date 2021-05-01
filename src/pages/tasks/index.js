@@ -5,17 +5,19 @@ import { FiTrash2, FiPlus, FiFilter, FiArrowLeftCircle } from "react-icons/fi";
 import styles from "./styles.module.scss";
 import api from "../../services/api";
 import { useRouter } from "next/router";
+import Cookie from "js-cookie";
 
 export default function tasks() {
   const [userTasks, setUserTasks] = useState([]);
-  const token = localStorage.getItem("token");
+  const token = Cookie.get("token");
+
   const router = useRouter();
 
   useEffect(() => {
     api
       .get("/tasks", {
         headers: {
-          Auth: "Bearer " + token,
+          Auth: "Bearer " + Cookie.get("token"),
         },
       })
       .then((response) => {
@@ -30,7 +32,7 @@ export default function tasks() {
       api
         .get("/tasks/sorted", {
           headers: {
-            Auth: "Bearer " + token,
+            Auth: "Bearer " + Cookie.get("token"),
           },
         })
         .then((response) => {
@@ -57,6 +59,7 @@ export default function tasks() {
   function handleLogout() {
     try {
       localStorage.clear();
+      Cookie.set("token", "");
       router.push("/landing");
     } catch (error) {
       alert("Erro ao deletar tarefa.");

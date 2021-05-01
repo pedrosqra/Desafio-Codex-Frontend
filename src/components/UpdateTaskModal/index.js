@@ -4,11 +4,12 @@ import { FiEdit2, FiArrowLeftCircle } from "react-icons/fi";
 import styles from "./styles.module.scss";
 import api from "../../services/api";
 import { useRouter } from "next/router";
+import Cookie from "js-cookie";
 
 export default function ModalItem(props) {
-  const router = useRouter();
-  const token = localStorage.getItem("token");
   const taskId = props.children;
+  const router = useRouter();
+  const token = Cookie.get("token");
   const [isModalOpen, setModalState] = useState(false);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -33,8 +34,9 @@ export default function ModalItem(props) {
       );
       setModalState(false);
       router.push("/tasks");
+      router.reload();
     } catch (err) {
-      alert(err);
+      alert("Erro ao atualizar, confira os campos.");
     }
   }
 
