@@ -33,10 +33,12 @@ export default function NewTask() {
 
   return (
     <div>
-      <div className={styles.logon}>
-        <button className={styles.back} type="button" onClick={handleBack}>
-          <FiArrowLeftCircle size={50} color="#ffff" />
-        </button>
+      <div className={styles.page}>
+        <div className={styles.backbutton}>
+          <button className={styles.back} type="button" onClick={handleBack}>
+            <FiArrowLeftCircle size={50} color="#ffff" />
+          </button>
+        </div>
         <section className={styles.sec}>
           <h1 className={styles.apptitle}>Nova Tarefa</h1>
           <form className={styles.formcenter} onSubmit={handleCreateTask}>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Modal from "../../components/modal/modal";
+import Modal from "../../components/RegisterModal/modal";
 import styles from "./styles.module.scss";
 import api from "../../services/api";
 import Cookie from "js-cookie";

@@ -17,7 +17,7 @@ export default function tasks() {
     api
       .get("/tasks", {
         headers: {
-          Auth: "Bearer " + Cookie.get("token"),
+          Auth: "Bearer " + token,
         },
       })
       .then((response) => {
@@ -32,7 +32,7 @@ export default function tasks() {
       api
         .get("/tasks/sorted", {
           headers: {
-            Auth: "Bearer " + Cookie.get("token"),
+            Auth: "Bearer " + token,
           },
         })
         .then((response) => {
@@ -62,15 +62,17 @@ export default function tasks() {
       Cookie.set("token", "");
       router.push("/landing");
     } catch (error) {
-      alert("Erro ao deletar tarefa.");
+      alert(error);
     }
   }
 
   return (
     <div className={styles.background}>
-      <button className={styles.back} type="button" onClick={handleLogout}>
-        <FiArrowLeftCircle size={50} color="#ffff" />
-      </button>
+      <div className={styles.backbutton}>
+        <button className={styles.back} type="button" onClick={handleLogout}>
+          <FiArrowLeftCircle size={50} color="#ffff" />
+        </button>
+      </div>
       <div className={styles.container}>
         <div className={styles.functions}>
           <Link href={"/newTask"}>

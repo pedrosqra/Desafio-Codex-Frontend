@@ -70,7 +70,7 @@
   background: #5695c2;
 }
 
-@media (max-width: 1080px) {
+@media screen and (max-width: 1080px) {
   .logon {
     display: flex;
     flex-direction: column;
@@ -80,10 +80,16 @@
 
   .image1 {
     display: none;
+  }
+
+  .sec {
+    display: flex;
+    flex-direction: column;
+    width: 80vh;
   }
 }
 
-@media (max-width: 720px) {
+@media screen and (max-width: 720px) {
   .logon {
     display: flex;
     flex-direction: column;
@@ -93,5 +99,11 @@
 
   .image1 {
     display: none;
+  }
+
+  .sec {
+    display: flex;
+    flex-direction: column;
+    width: 50vh;
   }
 }
