@@ -1,4 +1,4 @@
-.logon {
+.page {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -10,11 +10,14 @@
   width: 35%;
 }
 
+.backbutton {
+  align-self: auto;
+  justify-content: center;
+}
+
 .back {
   background: none;
   border: none;
-  margin: 5% 0% -10% 0%;
-  align-self: flex-start;
 }
 
 .formcenter {
@@ -95,20 +98,62 @@
   background: #5695c2;
 }
 
-@media (max-width: 1080px) {
-  .logon {
+@media screen and (max-width: 992px) {
+  .page {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    height: 100vh;
+  }
+
+  .image1 {
+    display: none;
+  }
+
+  .backbutton {
+    align-self: flex-start;
+    justify-content: flex-start;
+    margin-left: 10%;
+  }
+
+  .back {
+    background: none;
+    border: none;
+  }
+
+  .sec {
+    display: flex;
+    flex-direction: column;
   }
 }
 
-@media (max-width: 720px) {
-  .logon {
+@media screen and (max-width: 720px) {
+  .page {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    height: 100vh;
+  }
+
+  .image1 {
+    display: none;
+  }
+
+  .backbutton {
+    align-self: flex-start;
+    justify-content: flex-start;
+    margin-left: 10%;
+  }
+
+  .back {
+    background: none;
+    border: none;
+  }
+
+  .sec {
+    display: flex;
+    flex-direction: column;
   }
 }
