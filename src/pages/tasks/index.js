@@ -87,7 +87,7 @@ export default function tasks() {
         </div>
         <ul>
           <div className={styles.sections}>
-            <p>Título</p>
+            <p className={styles.columntitle}>Título</p>
             <p>Descrição</p>
           </div>
           {userTasks.map((task) => {
@@ -97,11 +97,13 @@ export default function tasks() {
                   <a className={styles.title} onClick={null}>
                     {task.name}
                   </a>
-                  <p className={styles.desc}>{task.description}</p>
+                  <textarea readOnly className={styles.desc}>
+                    {task.description}
+                  </textarea>
                   <div className={styles.sidebuttons}>
                     <UpdateTaskModal>{task._id}</UpdateTaskModal>
                     <button
-                      className={styles.upbutton}
+                      className={styles.trash}
                       type="button"
                       onClick={() => handleDeleteTask(task._id)}
                     >

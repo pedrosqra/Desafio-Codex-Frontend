@@ -13,12 +13,15 @@
 }
 
 .desc {
-  width: 70%;
+  width: 60%;
   overflow: auto;
+  resize: none;
+  margin-left: 1%;
+  border: none;
 }
 
-.title {
-  overflow: auto;
+.columntitle {
+  margin-right: 20%;
 }
 
 .backbutton {
@@ -34,32 +37,44 @@
 }
 
 .sections {
-  margin-top: 2%;
   margin-bottom: 2%;
-  margin-left: 13%;
   font-weight: bold;
   display: flex;
-  width: 50%;
+  width: 40%;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   color: #0f1014c4;
 }
 
 .task {
   display: flex;
   flex-direction: row;
+  height: 12rem;
   justify-content: space-between;
   list-style: none;
   background-color: #ffffff;
   border-radius: 8px;
   margin-bottom: 5%;
-  padding: 9%;
+  padding: 5%;
+}
+
+.upbutton {
+  border: none;
+  background: none;
+}
+.title {
+  font-weight: bold;
+  font-style: italic;
+}
+
+.trash {
+  background: none;
+  border: none;
 }
 
 .sidebuttons {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
 .functions {
@@ -68,11 +83,6 @@
   justify-content: space-between;
   background: none;
   margin-top: 20%;
-}
-
-.upbutton {
-  background: none;
-  border: none;
 }
 
 @media screen and (max-width: 1080px) {
