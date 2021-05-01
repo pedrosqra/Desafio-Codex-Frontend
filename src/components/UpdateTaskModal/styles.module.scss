@@ -7,26 +7,9 @@
 }
 
 .editbutton {
+  background: none;
   border: none;
-  background: none;
 }
-
-.register {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.registerbutton {
-  background: none;
-  margin-left: 3%;
-  font-family: inherit;
-  font-weight: bold;
-  color: #ffffff;
-  border: 0;
-  padding: 0;
-}
-
 .close {
   background: none;
   margin-left: 3%;
@@ -118,4 +101,39 @@
   color: #e9edf0;
   text-shadow: 3px 2px rgb(23, 127, 196);
   margin: 4.8% 0 0 8%;
+}
+
+@media screen and (max-width: 920px) {
+  .image {
+    display: none;
+  }
+
+  .formcenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .apptitle {
+    font-family: Roboto, sans-serif;
+    font-style: normal;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 2rem;
+    color: #e9edf0;
+    text-shadow: 3px 2px rgb(23, 127, 196);
+  }
+
+  .close {
+    background: none;
+    margin-left: 3%;
+    margin-top: 6%;
+    font-family: inherit;
+    font-weight: bold;
+    color: #ffffff;
+    border: 0;
+    padding: 0;
+  }
 }

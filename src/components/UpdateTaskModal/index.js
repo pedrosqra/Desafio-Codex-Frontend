@@ -61,6 +61,7 @@ export default function ModalItem(props) {
         </button>
       </div>
       <Modal
+        on
         style={customStyles}
         ariaHideApp={false}
         isOpen={isModalOpen}
