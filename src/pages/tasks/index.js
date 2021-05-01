@@ -73,6 +73,8 @@ export default function tasks() {
           <FiArrowLeftCircle size={50} color="#ffff" />
         </button>
       </div>
+      <h1 className={styles.apptitle}>Suas Tarefas</h1>
+
       <div className={styles.container}>
         <div className={styles.functions}>
           <Link href={"/newTask"}>
