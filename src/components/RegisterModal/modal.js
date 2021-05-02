@@ -25,7 +25,11 @@ export default function ModalItem() {
       console.log(response.data.error);
       alert("Conta criada com sucesso!");
     } catch (err) {
-      alert("Falha no login, tente novamente.");
+      alert(
+        "Falha no login. Tente novamente e verifique" +
+          " se seu email é válido " +
+          "ou se sua senha e apelido tem no mínimo 6 caracteres."
+      );
     }
   }
 
@@ -64,7 +68,7 @@ export default function ModalItem() {
           <form className={styles.formcenter} onSubmit={handleRegister}>
             <input
               className={styles.forminput}
-              placeholder="nickname"
+              placeholder="usuário"
               value={nickname}
               onChange={(e) => setNick(e.target.value)}
             />
