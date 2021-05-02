@@ -53,7 +53,7 @@ export default function ModalItem(props) {
   };
 
   return (
-    <div className={styles.registermodal}>
+    <div>
       <div className={styles.exterior}>
         <button
           className={styles.editbutton}

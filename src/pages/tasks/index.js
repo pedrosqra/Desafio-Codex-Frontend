@@ -6,6 +6,7 @@ import styles from "./styles.module.scss";
 import api from "../../services/api";
 import { useRouter } from "next/router";
 import Cookie from "js-cookie";
+import Head from "next/head";
 
 export default function tasks() {
   const [userTasks, setUserTasks] = useState([]);
@@ -68,6 +69,9 @@ export default function tasks() {
 
   return (
     <div className={styles.background}>
+      <Head>
+        <title>Suas Tarefas</title>
+      </Head>
       <div className={styles.backbutton}>
         <button className={styles.back} type="button" onClick={handleLogout}>
           <FiArrowLeftCircle size={50} color="#ffff" />

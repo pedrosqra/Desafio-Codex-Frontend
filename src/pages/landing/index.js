@@ -4,6 +4,7 @@ import styles from "./styles.module.scss";
 import api from "../../services/api";
 import Cookie from "js-cookie";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 export default function Logon() {
   const [email, setEmail] = useState("");
@@ -25,33 +26,34 @@ export default function Logon() {
   }
 
   return (
-    <div>
-      <div className={styles.logon}>
-        <section className={styles.sec}>
-          <h1 className={styles.apptitle}>To-Do</h1>
-          <form className={styles.formcenter} onSubmit={handleLogin}>
-            <input
-              className={styles.forminput}
-              placeholder="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              className={styles.forminput}
-              placeholder="senha"
-              type="password"
-              value="FakePSW"
-              value={password}
-              onChange={(e) => setPass(e.target.value)}
-            />
-            <button className={styles.button} type="submit">
-              Entrar
-            </button>
-          </form>
-          <Modal />
-        </section>
-        <img className={styles.image1} src="/taskPencil.png" alt="logo" />
-      </div>
+    <div className={styles.logon}>
+      <Head>
+        <title>To-Do</title>
+      </Head>
+      <section className={styles.sec}>
+        <h1 className={styles.apptitle}>To-Do</h1>
+        <form className={styles.formcenter} onSubmit={handleLogin}>
+          <input
+            className={styles.forminput}
+            placeholder="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            className={styles.forminput}
+            placeholder="senha"
+            type="password"
+            value="FakePSW"
+            value={password}
+            onChange={(e) => setPass(e.target.value)}
+          />
+          <button className={styles.button} type="submit">
+            Entrar
+          </button>
+        </form>
+        <Modal />
+      </section>
+      <img className={styles.image1} src="/taskPencil.png" alt="logo" />
     </div>
   );
 }

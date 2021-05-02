@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>ToDo Codex</title>
+        <title>To-Do</title>
       </Head>
       <Logon />
     </div>
