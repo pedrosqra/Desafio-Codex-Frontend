@@ -87,7 +87,7 @@ export default function tasks() {
             <FiFilter size={50} color="#5699" alt="Ordenar tarefas" />
           </button>
         </div>
-        <ul>
+        <ul className={styles.list}>
           <div className={styles.sections}>
             <p className={styles.columntitle}>Título</p>
             <p>Descrição</p>
