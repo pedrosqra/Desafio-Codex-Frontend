@@ -87,11 +87,11 @@ export default function tasks() {
             <FiFilter size={50} color="#5699" alt="Ordenar tarefas" />
           </button>
         </div>
+        <div className={styles.sections}>
+          <p className={styles.columntitle}>Título</p>
+          <p>Descrição</p>
+        </div>
         <ul className={styles.list}>
-          <div className={styles.sections}>
-            <p className={styles.columntitle}>Título</p>
-            <p>Descrição</p>
-          </div>
           {userTasks.map((task) => {
             return (
               <div key={task._id}>
