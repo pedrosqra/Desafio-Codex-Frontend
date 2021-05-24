@@ -44,6 +44,14 @@ export default function tasks() {
     }
   }
 
+  function handleDecision(id) {
+    if (confirm("Deseja deletar essa tarefa?")) {
+      handleDeleteTask(id);
+    } else {
+      console.log("cancel");
+    }
+  }
+
   async function handleDeleteTask(id) {
     try {
       await api.delete(`/task/${id}`, {
@@ -107,11 +115,16 @@ export default function tasks() {
                     {task.description}
                   </textarea>
                   <div className={styles.sidebuttons}>
-                    <UpdateTaskModal>{task._id}</UpdateTaskModal>
+                    <UpdateTaskModal
+                      name={task.name}
+                      description={task.description}
+                      id={task._id}
+                      priority={task.priority}
+                    />
                     <button
                       className={styles.trash}
                       type="button"
-                      onClick={() => handleDeleteTask(task._id)}
+                      onClick={() => handleDecision(task._id)}
                     >
                       <FiTrash2 size={25} color="red" />
                     </button>

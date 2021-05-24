@@ -7,13 +7,13 @@ import { useRouter } from "next/router";
 import Cookie from "js-cookie";
 
 export default function ModalItem(props) {
-  const taskId = props.children;
+  const taskId = props.id;
   const router = useRouter();
   const token = Cookie.get("token");
   const [isModalOpen, setModalState] = useState(false);
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [priority, setPriority] = useState("baixa");
+  const [name, setName] = useState(props.name);
+  const [description, setDescription] = useState(props.description);
+  const [priority, setPriority] = useState(props.priority);
 
   async function handleUpdate(e) {
     e.preventDefault();
