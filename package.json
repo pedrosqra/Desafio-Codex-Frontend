@@ -8,7 +8,7 @@
     "start": "next start -p $PORT"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "js-cookie": "^2.2.1",
     "next": "10.2.0",
     "react": "^17.0.2",
